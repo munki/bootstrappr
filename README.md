@@ -32,3 +32,32 @@ Bootstrappr is designed to be able to run in Recovery mode, allowing you to "boo
   * `hdutil mount <your_bootstrap_dmg_url>`
   * `/Volumes/bootstrap/run` (use `sudo` if not in Recovery)
   * If in Recovery, restart.
+
+
+#### Sample session
+
+```
+# hdiutil attach http://macbootstrap
+/dev/disk3          	GUID_partition_scheme          	
+/dev/disk3s1        	Apple_HFS                      	/Volumes/bootstrap
+# /Volumes/bootstrap/run 
+*** Welcome to bootstrappr! ***
+Available volumes:
+    1  Macintosh HD
+    2  Target Volume
+    3  bootstrap
+Install to volume # (1-3): 2
+Installing packages to /Volumes/Target Volume...
+installer: Package name is foo
+installer: Installing at base path /Volumes/Target Volume
+installer: The install was successful.
+installer: Package name is bar
+installer: Installing at base path /Volumes/Target Volume
+installer: The install was successful.
+installer: Package name is baz
+installer: Installing at base path /Volumes/Target Volume
+installer: The install was successful.
+installer: Package name is Munki - Managed software installation for OS X
+installer: Installing at base path /Volumes/Target Volume
+installer: The install was successful.
+```
