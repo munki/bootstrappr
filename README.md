@@ -34,7 +34,7 @@ Bootstrappr is designed to be able to run in Recovery mode, allowing you to "boo
   * If in Recovery, restart.
 
 
-#### Sample session
+### Sample session
 
 ```
 # hdiutil attach http://macbootstrap
