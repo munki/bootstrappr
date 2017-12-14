@@ -1,7 +1,7 @@
 ## Bootstrappr
 
 A bare-bones tool to install a set of packages on a target volume.  
-Typically these would be pacakges that "enroll" the machine into your management system; upon reboot these tools would take over and continue the setup and configuration of the machine.
+Typically these would be packages that "enroll" the machine into your management system; upon reboot these tools would take over and continue the setup and configuration of the machine.
 
 Add desired packages to the bootstrap/packages directory. Ensure all packages you add can be properly installed to volumes other than the current boot volume.
 
