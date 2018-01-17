@@ -7,6 +7,8 @@ Add desired packages to the bootstrap/packages directory. Ensure all packages yo
 
 Bootstrappr is designed to be able to run in Recovery mode, allowing you to "bootstrap" a machine fresh out of the box without having to run the Setup Assistant, manually creating a local account, and other unreliable manual tasks.
 
+#### iMac Pro
+Bootstrappr is particularly useful with the new iMac Pro, which does not support NetBoot, and is tricky to get to boot from external media. To set up a new machine, you'd pull the machine out of the box, boot into Recovery (Command-R at start up), and mount the Bootstrappr disk and run Bootstappr.
 
 ### Usage scenarios
 
