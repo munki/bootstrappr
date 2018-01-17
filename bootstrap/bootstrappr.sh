@@ -30,6 +30,7 @@ if [[ "${SELECTEDVOLUME}" == "" ]]; then
     exit 0
 fi
 
+echo
 echo "Installing packages to /Volumes/${SELECTEDVOLUME}..."
 
 # dirname and basename not available in Recovery boot
@@ -41,3 +42,16 @@ PACKAGESDIR="${THISDIR}packages"
 for PKG in $(/bin/ls -1 "${PACKAGESDIR}"/*.pkg) ; do
     /usr/sbin/installer -pkg "${PKG}" -target "/Volumes/${SELECTEDVOLUME}"
 done
+
+echo
+echo "Packages installed. What now?"
+echo "    1  Restart"
+echo "    2  Shut down"
+echo "    3  Quit"
+read -p "Pick an action # (1-3): " WHATNOW
+
+case $WHATNOW in
+    1 ) /sbin/shutdown -r now ;;
+    2 ) /sbin/shutdown -h now ;;
+    3 ) echo ;;
+esac
