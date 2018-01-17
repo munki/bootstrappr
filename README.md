@@ -64,7 +64,6 @@ installer: Package name is Munki - Managed software installation for OS X
 installer: Installing at base path /Volumes/Target Volume
 installer: The install was successful.
 
-
 Packages installed. What now?
     1  Restart
     2  Shut down
