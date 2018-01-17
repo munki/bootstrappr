@@ -49,6 +49,7 @@ Available volumes:
     2  Target Volume
     3  bootstrap
 Install to volume # (1-3): 2
+
 Installing packages to /Volumes/Target Volume...
 installer: Package name is foo
 installer: Installing at base path /Volumes/Target Volume
@@ -62,4 +63,11 @@ installer: The install was successful.
 installer: Package name is Munki - Managed software installation for OS X
 installer: Installing at base path /Volumes/Target Volume
 installer: The install was successful.
+
+
+Packages installed. What now?
+    1  Restart
+    2  Shut down
+    3  Quit
+Pick an action # (1-3): 3
 ```
