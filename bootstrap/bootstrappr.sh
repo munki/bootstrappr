@@ -37,7 +37,7 @@ echo "Installing packages to /Volumes/${SELECTEDVOLUME}..."
 # so we get to use Bash pattern matching
 BASENAME=${0##*/}
 THISDIR=${0%$BASENAME}
-PACKAGESDIR="${THISDIR}/../testdir"
+PACKAGESDIR="${THISDIR}packages"
 
 for ITEM in "${PACKAGESDIR}"/* ; do
 	FILENAME="${ITEM##*/}"
