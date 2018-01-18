@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # bootstrappr.sh
-# A script to install packages found in a packages folder in the same directory
+# A script to install packages and scripts found in a packages folder in the same directory
 # as this script to a selected volume
 
 if [[ $EUID != 0 ]] ; then
@@ -37,11 +37,32 @@ echo "Installing packages to /Volumes/${SELECTEDVOLUME}..."
 # so we get to use Bash pattern matching
 BASENAME=${0##*/}
 THISDIR=${0%$BASENAME}
-PACKAGESDIR="${THISDIR}packages"
+PACKAGESDIR="${THISDIR}/../testdir"
 
-for PKG in $(/bin/ls -1 "${PACKAGESDIR}"/*.pkg) ; do
-    /usr/sbin/installer -pkg "${PKG}" -target "/Volumes/${SELECTEDVOLUME}"
+for ITEM in "${PACKAGESDIR}"/* ; do
+	FILENAME="${ITEM##*/}"
+	EXTENSION="${FILENAME##*.}"
+	if [[ -e ${ITEM} ]]; then
+		case ${EXTENSION} in
+			sh ) 
+				if [[ -x ${ITEM} ]]; then
+					echo "running script:  ${FILENAME}"
+					# pass the selected volume to the script as $1
+					${ITEM} "/Volumes/${SELECTEDVOLUME}"
+				fi
+				;;
+			pkg ) 
+				echo "install package: ${FILENAME}"
+				/usr/sbin/installer -pkg "${ITEM}" -target "/Volumes/${SELECTEDVOLUME}"
+				;;
+			* ) echo "unsupported file extension: ${ITEM}" ;;
+		esac
+	fi
 done
+
+#for PKG in $(/bin/ls -1 "${PACKAGESDIR}"/*.pkg) ; do
+#    /usr/sbin/installer -pkg "${PKG}" -target "/Volumes/${SELECTEDVOLUME}"
+#done
 
 echo
 echo "Packages installed. What now?"
