@@ -49,8 +49,11 @@ for ITEM in "${PACKAGESDIR}"/* ; do
 					echo "running script:  ${FILENAME}"
 					# pass the selected volume to the script as $1
 					${ITEM} "/Volumes/${SELECTEDVOLUME}"
+<<<<<<< HEAD
 				else
 					echo "${FILENAME} is not executable"
+=======
+>>>>>>> 25f561ea4930cbc1b977492829100169af6bff78
 				fi
 				;;
 			pkg ) 
