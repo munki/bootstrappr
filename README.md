@@ -1,13 +1,30 @@
 ## Bootstrappr
 
-A bare-bones tool to install a set of packages on a target volume.  
-Typically these would be packages that "enroll" the machine into your management system; upon reboot these tools would take over and continue the setup and configuration of the machine.
-
-Add desired packages to the bootstrap/packages directory. Ensure all packages you add can be properly installed to volumes other than the current boot volume.
+A bare-bones tool to install a set of packages and scripts on a target volume.  
+Typically these would be packages or scripts that "enroll" the machine into your management system; upon reboot these tools would take over and continue the setup and configuration of the machine.
 
 Bootstrappr is designed to be able to run in Recovery mode, allowing you to "bootstrap" a machine fresh out of the box without having to run the Setup Assistant, manually creating a local account, and other unreliable manual tasks.
 
+### Packages
+
+Add desired packages to the `bootstrap/packages` directory. Ensure all packages you add can be properly installed to volumes other than the current boot volume.
+
+If your packages just have payloads, they should work fine. Pre- and postinstall scripts need to be checked to not use absolute paths to the current startup volume. The installer system passes the target volume in the third argument `$3` to installation scripts.
+
+### Scripts
+
+Bootstrappr will check that script filenames end with the `.sh` extension and have the executable bit set. Other files will be ignored.
+
+Keep in mind that the Recovery system does not have the same set of tools available the the full macOS has. `Python`, `ruby`, `zsh`, `osascript`, `systemsetup`, `networksetup` and many others are *not* available in the Recovery system, write your scripts accordingly. Using `bash` for your scripts is the safest choice.
+
+If in doubt boot to Recovery and test.
+
+### Order
+
+Bootstrappr will work through scripts and packages in alphanumerical order. To control the order, you can prefix filenames with numbers.
+
 #### iMac Pro
+
 Bootstrappr is particularly useful with the new iMac Pro, which does not support NetBoot, and is tricky to get to boot from external media. To set up a new machine, you'd pull the machine out of the box, boot into Recovery (Command-R at start up), and mount the Bootstrappr disk and run Bootstappr.
 
 ### Usage scenarios
