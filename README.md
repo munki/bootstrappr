@@ -48,7 +48,7 @@ Bootstrappr is particularly useful with the new iMac Pro, which does not support
 * Bootstrapping:
   * (Optional) Start up in Recovery mode.
   * Open Terminal (from the Utilities menu if in Recovery).
-  * `hdutil mount <your_bootstrap_dmg_url>`
+  * `hdiutil mount <your_bootstrap_dmg_url>`
   * `/Volumes/bootstrap/run` (use `sudo` if not in Recovery)
   * If in Recovery, restart.
 
