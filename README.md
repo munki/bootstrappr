@@ -15,7 +15,7 @@ If your packages just have payloads, they should work fine. Pre- and postinstall
 
 Bootstrappr will check that script filenames end with the `.sh` extension and have the executable bit set. Other files will be ignored.
 
-Keep in mind that the Recovery system does not have the same set of tools available the the full macOS has. `Python`, `ruby`, `zsh`, `osascript`, `systemsetup`, `networksetup` and many others are *not* available in the Recovery system, write your scripts accordingly. Using `bash` for your scripts is the safest choice.
+Keep in mind that the Recovery system does not have the same set of tools available the full macOS has. `Python`, `ruby`, `zsh`, `osascript`, `systemsetup`, `networksetup` and many others are *not* available in the Recovery system, write your scripts accordingly. Using `bash` for your scripts is the safest choice.
 
 If in doubt boot to Recovery and test.
 
