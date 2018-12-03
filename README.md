@@ -47,6 +47,7 @@ Bootstrappr is particularly useful with the new iMac Pro, which does not support
 * Preparation:
   * Create a disk image using the `make_dmg.sh` script.
   * Copy the disk image to a web server.
+  * (https URLs may be problematic in Recovery mode. http URLs should be fine.)
 * Bootstrapping:
   * (Optional) Start up in Recovery mode.
   * Open Terminal (from the Utilities menu if in Recovery).
